@@ -7,9 +7,13 @@ class FileData {
     }
 
     calculateTF_IDF(idf) {
-        const tf = this.fileOcurrences / this.fileContentSize;
-        const rawTf_Idf = tf / idf
-        this.tf_idf = Math.round(((rawTf_Idf) + Number.EPSILON) * 10000000) / 10000000
+        if (idf !== 0 ) {
+            const tf = this.fileOcurrences / this.fileContentSize;
+            const rawTf_Idf = tf / idf;
+            this.tf_idf = Math.round(((rawTf_Idf) + Number.EPSILON) * 10000000) / 10000000;
+        } else {
+            this.tf_idf = 0;
+        }
     }
 }
 
