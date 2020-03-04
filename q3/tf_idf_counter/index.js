@@ -1,14 +1,13 @@
 const chokidar = require('chokidar');
 const fs = require('fs');
 const chalk = require('chalk');
-const config = require('dotenv').config().parsed;
 const argv = require('yargs').argv;
 const path = require('path');
 
 const DataStorage = require('./src/DataStorage/index.js');
 const dataStorage = new DataStorage();
 
-const pathData = argv.d || config.DATA_PATH;
+const pathData = argv.d || './data';
 let keyPhrase;
 
 
