@@ -15,7 +15,7 @@ class DataStorage {
     addFileData(fileName, content, keyPhrase) {                    
         const wordsInFile = content.match(/\S+/g);
         if (wordsInFile.length)  {
-          const ocurrencesCount = wordsInFile.filter((v) => (v === keyPhrase)).length;
+          const ocurrencesCount = wordsInFile.filter((v) => (v.toLowerCase() === keyPhrase.toLowerCase())).length;
           const numberOfWordsInFile = wordsInFile ? wordsInFile.length : 0;
         
           this.filesData.push(new FileData(numberOfWordsInFile, ocurrencesCount, fileName))
