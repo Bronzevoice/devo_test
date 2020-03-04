@@ -8,7 +8,7 @@ const DataStorage = require('./src/DataStorage/index.js');
 const dataStorage = new DataStorage();
 
 const pathData = argv.d || './data';
-let keyPhrase;
+const keyPhrase = argv.t;
 
 
 const watcher = chokidar.watch(pathData, {
@@ -70,8 +70,7 @@ function readSingleFile(dirname, filename, keyPhrase) {
 }
 
 // Checks if -t param is present to run the program
-if (argv.t) {
-  keyPhrase = argv.t;
+if (keyPhrase) {  
   readFiles(pathData, dataStorage.addFileData);
 } else {
   console.log(chalk.red('Please indicate the term to check (-t param)'));
